@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsComponent } from './forms.component';
+import { ApiComponent } from './api.component';
 
 const appRoutes = [
-  { path: '', component: FormsComponent },
+  { path: '', component: ApiComponent }
 ];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(appRoutes),
+    RouterModule.forRoot(appRoutes)
   ]
 })
-export class FormsModule { }
+export class ApiModule { }
