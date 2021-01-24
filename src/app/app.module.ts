@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 
 const appRoutes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: AppComponent},
+  { path: 'home', loadChildren: () => import ('./modules/home/home.module').then(home => home.HomeModule) },
   { path: 'api', loadChildren: () => import ('./modules/api/api.module').then(api => api.ApiModule),},
   { path: 'forms', loadChildren: () => import ('./modules/forms/forms.module').then(form => form.FormsModule),},
 ];
