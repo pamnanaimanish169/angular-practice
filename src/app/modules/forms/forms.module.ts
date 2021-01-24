@@ -8,7 +8,9 @@ const appRoutes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FormsComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(appRoutes),

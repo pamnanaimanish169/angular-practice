@@ -8,10 +8,12 @@ const appRoutes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ApiComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forChild(appRoutes)
   ]
 })
 export class ApiModule { }
