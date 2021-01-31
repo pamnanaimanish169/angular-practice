@@ -9,9 +9,9 @@
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name" formControlName="name">
-            <div *ngIf="userForm.controls.name.touched" style="color: red;">
-                <div *ngIf="userForm.controls.name.invalid">
-                    This field is required.
+            <div *ngIf="isSubmitted && userForm.controls.name.errors" style="color: red;">
+                <div *ngIf="userForm.controls.name.errors.required">
+                    This field is required
                 </div>
             </div>
         </div>
@@ -19,9 +19,9 @@
         <div class="form-group">
             <label for="mobile_number">Mobile Number</label>
             <input type="number" class="form-control" id="name" aria-describedby="mobile_number" placeholder="Mobile Number" formControlName="number">
-            <div *ngIf="userForm.controls.number.touched" style="color: red;">
-                <div *ngIf="userForm.controls.number.invalid">
-                    This field is required.
+            <div *ngIf="isSubmitted && userForm.controls.number.errors" style="color: red;">
+                <div *ngIf="userForm.controls.number.errors.required">
+                    This field is required
                 </div>
             </div>
         </div>
@@ -34,20 +34,30 @@
                 <option value="russia">Russia</option>
                 <option value="australia">Australia</option>
             </select>
+            <div *ngIf="isSubmitted && userForm.controls.country.errors" style="color: red;">
+                <div *ngIf="userForm.controls.country.errors.required">
+                    This field is required
+                </div>
+            </div>
         </div>
 
         <!-- Radio Button -->
         <div class="form-group">
             <input type="radio" value="male" name="gender" formControlName="gender" (change)="changeGender($event)"> Male
             <input type="radio" value="female" name="gender" formControlName="gender" (change)="changeGender($event)"> Female
+            <div *ngIf="isSubmitted && userForm.controls.gender.errors" style="color: red;">
+                <div *ngIf="userForm.controls.gender.errors.required">
+                    This field is required
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="text" class="form-control" id="email" aria-describedby="email" placeholder="Enter email" formControlName="email">
-            <div *ngIf="userForm.controls.email.touched" style="color: red;">
-                <div *ngIf="userForm.controls.email.invalid">
-                    This field is required.
+            <div *ngIf="isSubmitted && userForm.controls.email.errors" style="color: red;">
+                <div *ngIf="userForm.controls.email.errors.required">
+                    This field is required
                 </div>
             </div>
         </div>
@@ -55,9 +65,9 @@
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" aria-describedby="password" placeholder="Enter Password" formControlName="password">
-            <div *ngIf="userForm.controls.password.touched" style="color: red;">
-                <div *ngIf="userForm.controls.password.invalid">
-                    This field is required.
+            <div *ngIf="isSubmitted && userForm.controls.password.errors" style="color: red;">
+                <div *ngIf="userForm.controls.password.errors.required">
+                    This field is required
                 </div>
             </div>
         </div>
@@ -65,6 +75,11 @@
         <!-- Checkbox -->
         <div class="form-group">
             <input type="checkbox" (change)="checkTerms($event)" formControlName="terms"> I Agree to Terms & Conditions.
+            <div *ngIf="isSubmitted && userForm.controls.terms.errors" style="color: red;">
+                <div *ngIf="userForm.controls.terms.errors.required">
+                    This field is required
+                </div>
+            </div>
         </div>
 
         <button class="btn btn-primary" (click)="onSubmit()" >Submit</button>

@@ -8,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormsComponent implements OnInit {
   userForm: FormGroup;
+  isSubmitted     :   boolean   = false;
 
   constructor() { }
 
@@ -80,6 +81,7 @@ export class FormsComponent implements OnInit {
     * @return {none}
   */
   onSubmit() {
+    this.isSubmitted = true;
     console.log(this.userForm);
   }
 
