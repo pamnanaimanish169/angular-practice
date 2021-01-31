@@ -18,7 +18,7 @@ export class FormsComponent implements OnInit {
 
   createForm() {
     this.userForm = new FormGroup({
-      name: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required, Validators.pattern('[a-z]{10,}')]),
       number: new FormControl('', Validators.required),
       country: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
