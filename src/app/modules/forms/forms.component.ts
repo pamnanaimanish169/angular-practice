@@ -27,15 +27,48 @@ export class FormsComponent implements OnInit {
     })
   }
 
+
   /*
     * 
-    * Programatically submit the form
-    * @public onSubmit
-    * @method onSubmit
+    * Programatically listen for change event on radio button
+    * @public changeGender
+    * @method changeGender
+    * @return {none}
+  */
+  changeGender(event) {
+    console.log(event.target.value);
+  }
+
+  /*
+    * 
+    * Programatically listen for change event on select dropdown
+    * @public onChange
+    * @method onChange
     * @return {none}
   */
   onChange(event) {
+    console.log(event.target.value);
+    if(event.target.value && event.target.value != '') {
+      this.userForm.get('country').setValue('event.target.value');
+    } else {
+      console.log('This field is required');
+    }
+  }
 
+  /*
+    * 
+    * Programatically listen for change event on checkbox
+    * @public checkTerms
+    * @method checkTerms
+    * @return {none}
+  */
+  checkTerms(event) {
+    console.log(event.target.checked);
+    if(event.target.checked) {
+      this.userForm.get('terms').setValue(event.target.checked);
+    } else {
+      console.log('Checkbox is required');
+    }
   }
 
   /*

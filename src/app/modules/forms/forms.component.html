@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <form>
+    <form [formGroup]="userForm">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name" formControlName="name">
@@ -19,8 +19,8 @@
         <div class="form-group">
             <label for="country">Country</label>
             <select name="" id="" class="custom-select" (change)="onChange($event)">
-                <option>Open this select menu</option>
-                <option value="india">India</option>
+                <option value="india" selected
+                >India</option>
                 <option value="america">America</option>
                 <option value="russia">Russia</option>
                 <option value="australia">Australia</option>
@@ -29,8 +29,8 @@
 
         <!-- Radio Button -->
         <div class="form-group">
-            <input type="radio" value="male" name="gender"> Male
-            <input type="radio" value="female" name="gender"> Female
+            <input type="radio" value="male" name="gender" formControlName="gender" (change)="changeGender($event)"> Male
+            <input type="radio" value="female" name="gender" formControlName="gender" (change)="changeGender($event)"> Female
         </div>
 
         <div class="form-group">
@@ -45,10 +45,10 @@
 
         <!-- Checkbox -->
         <div class="form-group">
-            <input type="checkbox"> I Agree to Terms & Conditions.
+            <input type="checkbox" (change)="checkTerms($event)" formControlName="terms"> I Agree to Terms & Conditions.
         </div>
 
-        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        <button class="btn btn-primary" (click)="onSubmit()" >Submit</button>
     </form>
 </body>
 </html>

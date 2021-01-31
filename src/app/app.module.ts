@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ApiComponent } from './modules/api/api.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,9 +18,10 @@ const appRoutes = [
     AppComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
